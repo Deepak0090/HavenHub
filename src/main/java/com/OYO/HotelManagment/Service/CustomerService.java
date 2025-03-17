@@ -2,6 +2,7 @@ package com.OYO.HotelManagment.Service;
 
 import com.OYO.HotelManagment.DTO.Request.CustomerRequestDto;
 import com.OYO.HotelManagment.DTO.Response.CustomerResponseDto;
+import com.OYO.HotelManagment.Exception.CustomerNotFoundException;
 import com.OYO.HotelManagment.Exception.DuplicateEmailException;
 //import com.OYO.HotelManagment.Model.Aadhar;
 import com.OYO.HotelManagment.Model.Customer;
@@ -94,9 +95,9 @@ public class CustomerService {
                return customerResponseDtos;
     }
 
-    public Customer getCustomerById(Integer customerID) {
+    public Customer getCustomerById(Integer customerID) throws CustomerNotFoundException {
 
         return  customerRepo.findById(customerID)
-                .orElseThrow(()-> new IllegalArgumentException("Customer Not Found"));
+                .orElseThrow(()-> new CustomerNotFoundException("Customer Not Found"));
     }
 }

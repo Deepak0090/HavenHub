@@ -22,7 +22,6 @@ public class CustomerController {
     public ResponseEntity<CustomerResponseDto> createCustomer(@RequestBody CustomerRequestDto customerRequestDto){
         try {
 
-
             CustomerResponseDto responseDto = customerService.createCustomers(customerRequestDto);
             return new ResponseEntity<>(responseDto, HttpStatus.CREATED);
         }catch (DuplicateEmailException e){

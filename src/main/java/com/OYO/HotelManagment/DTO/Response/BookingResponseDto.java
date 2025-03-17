@@ -20,19 +20,23 @@ public class BookingResponseDto{
 
    private String errorMessage;
 
-   private LocalDate checkOut;
-
-   private BookingStatus bookingStatus;
+   private Integer bookingId;
 
    private Integer hotelId;
 
    private Integer roomId;
 
-   private Integer bookingAmount;
+   private Integer customerId;
 
    private LocalDate checkIn;
 
-   private Boolean isPrepaid;
+   private LocalDate checkOut;
 
-   private Integer numberOfGuest;
+   private Double bookingAmount;
+
+//   private BookingStatus bookingStatus;
+
+//   private Boolean isPrepaid;
+
+   private String message;
 }

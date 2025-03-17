@@ -3,6 +3,7 @@ package com.OYO.HotelManagment.Service;
 import com.OYO.HotelManagment.DTO.Response.PriceInventoryResponseDto;
 import com.OYO.HotelManagment.Model.Hotel;
 import com.OYO.HotelManagment.Model.PriceInventoryDetails;
+import com.OYO.HotelManagment.Repository.BookingRepo;
 import com.OYO.HotelManagment.Repository.PriceInventoryRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,20 +18,31 @@ import java.util.Optional;
 public class PriceInventoryService {
 
     @Autowired
+    BookingRepo bookingRepo;
+
+    @Autowired
     private PriceInventoryRepo priceInventoryRepo;
 
     // public void updateInventory(){ -> need to create this Function
 
-    public boolean updateInventory(Integer hotelId, Integer roomId, LocalDate checkIn, LocalDate checkOut){
+    public boolean updateInventory(Integer hotelId, Integer roomId, LocalDate checkIn, LocalDate checkOut, boolean isCancel){
 
         Optional<PriceInventoryDetails> inventoryOpt  = priceInventoryRepo.findByHotelIdAndRoomIdAndDate(hotelId, roomId, checkIn);
         if (inventoryOpt.isPresent()){
             PriceInventoryDetails inventoryDetails = inventoryOpt.get();
-            if (inventoryDetails.getAvailableRooms()> 0){
-                inventoryDetails.setAvailableRooms(inventoryDetails.getAvailableRooms()- 1);
-                priceInventoryRepo.save(inventoryDetails);
-                return true;
+            if (isCancel){
+                inventoryDetails.setAvailableRooms(inventoryDetails.getAvailableRooms()+1);
+            }else {
+                if (inventoryDetails.getAvailableRooms()> 0){
+                    inventoryDetails.setAvailableRooms(inventoryDetails.getAvailableRooms()- 1);
+                }else {
+                    return false;
+                }
+
             }
+            priceInventoryRepo.save(inventoryDetails);
+            return true;
+
         }
         return false;
     }
@@ -85,7 +97,13 @@ public class PriceInventoryService {
                 System.out.println("Rooms are sold out for the given date.");
                 return false;
             }
+            long count = bookingRepo.countByHotelIdAndRoomIdAndCheckInBetween(hotelId,roomId,checkIn,checkOut);
+            if (count>0){
+                System.out.println("Room is already booked for the given dates");
+                return false;
+            }
             return true;
+
     }
 
     public double calculatePrice(Integer hotelId, Integer roomId, LocalDate checkIn, LocalDate checkOut) {

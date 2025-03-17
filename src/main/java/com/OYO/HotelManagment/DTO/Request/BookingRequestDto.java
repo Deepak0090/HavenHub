@@ -14,6 +14,8 @@ public class BookingRequestDto {
 
    private Integer hotelId;
 
+   private Integer bookingId;
+
    private Integer roomId;
 
    private Integer customerID;

@@ -40,7 +40,7 @@ public class Booking {
     LocalDate checkOut;
 
     @Column(name = "booking_Amount")
-    Integer amount;
+    Double amount;
 
     @Column(name = "is_prepaid")
     Boolean isPrepaid;
