@@ -1,5 +1,6 @@
 package com.OYO.HotelManagment.Service;
 
+import com.OYO.HotelManagment.DTO.NotificationDto;
 import com.OYO.HotelManagment.DTO.Request.BookingRequestDto;
 import com.OYO.HotelManagment.DTO.Response.BookingResponseDto;
 import com.OYO.HotelManagment.Enum.BookingStatus;
@@ -10,6 +11,7 @@ import com.OYO.HotelManagment.Exception.RoomNotFoundException;
 import com.OYO.HotelManagment.Model.Booking;
 import com.OYO.HotelManagment.Model.Customer;
 import com.OYO.HotelManagment.Repository.BookingRepo;
+import com.OYO.HotelManagment.interfaces.NotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +32,9 @@ public class BookingService {
 
     @Autowired
     PriceInventoryService priceInventoryService;
+
+    @Autowired
+    NotificationService notificationService;
 
     public BookingResponseDto createBookings(BookingRequestDto  bookingRequestDto) throws RoomNotFoundException, CustomerNotFoundException, CheckInAndCheckOutDateException {
 
@@ -79,9 +84,23 @@ public class BookingService {
                 bookingRequestDto.getCheckOut(),
                 false
         );
+        System.out.println(Thread.currentThread());
+        NotificationDto notificationDto = getNotificationSenderDto();
+        notificationService.sendNotification(notificationDto);
+        System.out.println(Thread.currentThread());
 
 
         return  convertBookingResponseDto(saveBooking);
+    }
+
+    private NotificationDto getNotificationSenderDto() {
+       NotificationDto notificationDto = new NotificationDto();
+       notificationDto.setMessage("Hey Your Booking is successfully Created Please Find the Below Booking Details For Reference");
+       notificationDto.setSubject("BOOKING CONFIRMATION");
+       notificationDto.setCustomerEmail("deepak936408@gmail.com");
+
+       return  notificationDto;
+
     }
 
     private BookingResponseDto convertBookingResponseDto(Booking booking) {

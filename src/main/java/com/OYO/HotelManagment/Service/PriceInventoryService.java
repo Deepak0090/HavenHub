@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,7 +24,6 @@ public class PriceInventoryService {
     @Autowired
     private PriceInventoryRepo priceInventoryRepo;
 
-    // public void updateInventory(){ -> need to create this Function
 
     public boolean updateInventory(Integer hotelId, Integer roomId, LocalDate checkIn, LocalDate checkOut, boolean isCancel){
 
@@ -54,7 +54,8 @@ public class PriceInventoryService {
 
             if (!inventoryDetailsList.isEmpty()){
                 PriceInventoryDetails minPriceInventory = inventoryDetailsList.stream()
-                        .min((a,b) -> Integer.compare(a.getPrice(), b.getPrice()))
+                        .filter(inv -> inv.getAvailableRooms()>0)
+                        .min(Comparator.comparingInt(PriceInventoryDetails::getPrice))
                         .orElse(null);
                 if (minPriceInventory != null){
                     responseDtoList.add(convertToResponseDto(minPriceInventory));
@@ -116,39 +117,9 @@ public class PriceInventoryService {
         throw new IllegalArgumentException("Room Price Information is Not Found");
     }
 
-    // need to write the Query which will Decrees the Inventory
-//    priceInventoryRepo.
-    // }
 
-//    public List<PriceInventoryResponseDto> getAvailableHotelsByMinPrice(List<Hotel> hotelList, LocalDate checkIn){
-//        return  null;
-//    }
-//
-//        // need to edit this logic
-//    public List<PriceInventoryResponseDto> getPriceAndInventoryForHotel(Integer hotelId, LocalDate checkIn, LocalDate checkOut){
-//        List<PriceInventoryResponseDto> priceInventoryResponseDtoList = new ArrayList<>();
-//        List<PriceInventoryDetails> priceInventoryDetails = priceInventoryRepo.findByHotelIdAndCheckIn(hotelId,checkIn,checkOut);
-//        for (PriceInventoryDetails priceInventoryDetails1 :priceInventoryDetails){
-//            PriceInventoryResponseDto responseDto = convertPriceInventoryDetailsToPriceInventoryResponseDto(priceInventoryDetails1);
-//            priceInventoryResponseDtoList.add(responseDto);
-//        }
-//        return priceInventoryResponseDtoList;
-//    }
-//
-//    private PriceInventoryResponseDto convertPriceInventoryDetailsToPriceInventoryResponseDto(PriceInventoryDetails priceInventoryDetails) {
-//
-//        Boolean isSoledOut=isHotelSoledOut(priceInventoryDetails.getAvailableRooms());
-//      return   PriceInventoryResponseDto.builder().price(priceInventoryDetails.getPrice())
-//                .date(priceInventoryDetails.getDate())
-//                .roomId(priceInventoryDetails.getRoomId())
-//                .hotelId(priceInventoryDetails.getHotelId())
-//                .isSoldOut(isSoledOut)
-//                .build();
-//    }
-
-//
-//    private Boolean isHotelSoledOut(Integer availableRooms) {
-//        return  availableRooms<0;
-//    }
+    private Boolean isHotelSoldOut(Integer availableRooms) {
+        return  availableRooms<=0;
+    }
 
 }
