@@ -42,6 +42,6 @@ public class Hotel {
     joinColumns = @JoinColumn(name = "hotel_id"),
             inverseJoinColumns = @JoinColumn(name = "room_id")
     )
-    @ManyToAny
+    @ManyToMany
     List<Room> roomList = new ArrayList<>();
 }

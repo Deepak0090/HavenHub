@@ -27,24 +27,26 @@ public class PriceInventoryService {
 
     public boolean updateInventory(Integer hotelId, Integer roomId, LocalDate checkIn, LocalDate checkOut, boolean isCancel){
 
-        Optional<PriceInventoryDetails> inventoryOpt  = priceInventoryRepo.findByHotelIdAndRoomIdAndDate(hotelId, roomId, checkIn);
-        if (inventoryOpt.isPresent()){
+         LocalDate date = checkIn;
+         while (!date.isAfter(checkOut)){
+        Optional<PriceInventoryDetails> inventoryOpt  = priceInventoryRepo.findByHotelIdAndRoomIdAndDate(hotelId, roomId, date);
+        if (inventoryOpt.isPresent()) {
             PriceInventoryDetails inventoryDetails = inventoryOpt.get();
-            if (isCancel){
-                inventoryDetails.setAvailableRooms(inventoryDetails.getAvailableRooms()+1);
-            }else {
-                if (inventoryDetails.getAvailableRooms()> 0){
-                    inventoryDetails.setAvailableRooms(inventoryDetails.getAvailableRooms()- 1);
-                }else {
+            if (isCancel) {
+                inventoryDetails.setAvailableRooms(inventoryDetails.getAvailableRooms() + 1);
+            } else {
+                if (inventoryDetails.getAvailableRooms() > 0) {
+                    inventoryDetails.setAvailableRooms(inventoryDetails.getAvailableRooms() - 1);
+                } else {
                     return false;
                 }
 
             }
             priceInventoryRepo.save(inventoryDetails);
-            return true;
-
         }
-        return false;
+           date = date.plusDays(1);
+        }
+        return true;
     }
 
     public List<PriceInventoryResponseDto> getAvailableHotelsByMinPrice(List<Hotel> hotelList, LocalDate checkIn){
@@ -64,7 +66,7 @@ public class PriceInventoryService {
         }
         return responseDtoList;
     }
-    public List<PriceInventoryResponseDto> getPriceInventoryForHotel(Integer hotelId, LocalDate checkIn, LocalDate checkOut){
+    public List<PriceInventoryResponseDto> getPriceAndInventoryForHotel(Integer hotelId, LocalDate checkIn, LocalDate checkOut){
         List<PriceInventoryResponseDto> priceInventoryResponseDtoList = new ArrayList<>();
         List<PriceInventoryDetails> priceInventoryDetails = priceInventoryRepo.findByHotelIdAndDateBetween(hotelId,checkIn,checkOut);
         for (PriceInventoryDetails priceInventoryDetails1 : priceInventoryDetails){
@@ -88,25 +90,27 @@ public class PriceInventoryService {
     public boolean checkAvailable(Integer hotelId, Integer roomId, LocalDate checkIn, LocalDate checkOut) {
         System.out.println("Checking availability for Hotel ID: " + hotelId + ", Room ID: " + roomId +
                 ", Check-In: " + checkIn + ", Check-Out: " + checkOut);
-        Optional<PriceInventoryDetails> inventoryDetails = priceInventoryRepo.findByHotelIdAndRoomIdAndDate(hotelId,roomId,checkIn);
-        if (!inventoryDetails.isPresent()) {
-            System.out.println("No inventory found for the given details.");
-            return false;
+        LocalDate date = checkIn;
+        while (!date.isAfter(checkOut)) {
+            Optional<PriceInventoryDetails> inventoryDetails = priceInventoryRepo.findByHotelIdAndRoomIdAndDate(hotelId, roomId, date);
+            if (!inventoryDetails.isPresent()) {
+                System.out.println("No inventory found for date: " + date);
+                return false;
+            }
+            if (inventoryDetails.get().getAvailableRooms() <= 0) {
+                System.out.println("Rooms are sold out for date: " + date);
+                return false;
+            }
+            long count = bookingRepo.countByHotelIdAndRoomIdAndCheckInBetween(hotelId, roomId, date, date);
+            if (count > 0) {
+                System.out.println("Room is already booked for date: " + date);
+                return false;
+            }
+            date = date.plusDays(1);
         }
-            PriceInventoryDetails inventoryDetails1 = inventoryDetails.get();
-            if (inventoryDetails1.getAvailableRooms()<=0){
-                System.out.println("Rooms are sold out for the given date.");
-                return false;
-            }
-            long count = bookingRepo.countByHotelIdAndRoomIdAndCheckInBetween(hotelId,roomId,checkIn,checkOut);
-            if (count>0){
-                System.out.println("Room is already booked for the given dates");
-                return false;
-            }
-            return true;
-
+        return  true;
     }
-
+ 
     public double calculatePrice(Integer hotelId, Integer roomId, LocalDate checkIn, LocalDate checkOut) {
         Optional<PriceInventoryDetails> inventoryDetails = priceInventoryRepo.findByHotelIdAndRoomIdAndDate(hotelId,roomId,checkIn);
         if (inventoryDetails.isPresent()){
@@ -116,7 +120,6 @@ public class PriceInventoryService {
         }
         throw new IllegalArgumentException("Room Price Information is Not Found");
     }
-
 
     private Boolean isHotelSoldOut(Integer availableRooms) {
         return  availableRooms<=0;

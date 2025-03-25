@@ -15,8 +15,8 @@ public class PriceInventoryController{
 
     @Autowired
     PriceInventoryService priceInventoryService;
-//
-//    List<PriceInventoryResponseDto> getPriceForHotel(@RequestParam("hotelId") Integer hotelId, @RequestParam("checkIn")LocalDate checkIn, @RequestParam("checkOut") LocalDate checkOut){
-//        return priceInventoryService.getPriceAndInventoryForHotel(hotelId, checkIn,checkOut);
-//    }
+
+    List<PriceInventoryResponseDto> getPriceForHotel(@RequestParam("hotelId") Integer hotelId, @RequestParam("checkIn")LocalDate checkIn, @RequestParam("checkOut") LocalDate checkOut){
+        return priceInventoryService.getPriceAndInventoryForHotel(hotelId, checkIn,checkOut);
+    }
 }

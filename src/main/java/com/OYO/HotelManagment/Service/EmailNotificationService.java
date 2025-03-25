@@ -1,6 +1,7 @@
 package com.OYO.HotelManagment.Service;
 
 import com.OYO.HotelManagment.DTO.NotificationDto;
+import com.OYO.HotelManagment.Model.Customer;
 import com.OYO.HotelManagment.interfaces.NotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
@@ -20,7 +21,7 @@ public class EmailNotificationService implements NotificationService {
     @Async
     public void sendNotification(NotificationDto notificationDto){
 
-        System.out.println(Thread.currentThread());
+        System.out.println("Sending email notification in thread: " + Thread.currentThread().getName());
         try {
              Thread.sleep(10000);
         }catch (InterruptedException e){
@@ -35,6 +36,6 @@ public class EmailNotificationService implements NotificationService {
        javaMailSender.send(simpleMailMessage);
 
 
-        System.out.println("Send Email Notification");
+        System.out.println("✅ Email Sent Successfully!");
     }
 }

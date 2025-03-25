@@ -6,6 +6,7 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
+@Builder
 public class NotificationDto {
 
     private String customerEmail;
@@ -18,6 +19,4 @@ public class NotificationDto {
     private String hotelAddress;
     private  String Subject;
     private String Message;
-
-
 }

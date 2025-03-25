@@ -18,10 +18,10 @@ public class PriceInventoryDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
 
-    @Column(name = "hotel_id", unique = true)
+    @Column(name = "hotel_id")
     Integer hotelId;
 
-    @Column(name = "room_id", unique = true)
+    @Column(name = "room_id")
     Integer roomId;
 
     @Column(name = "available_rooms")
@@ -31,6 +31,6 @@ public class PriceInventoryDetails {
     Integer price;
 
 
-   @Column(name = "date" , unique = true)
+   @Column(name = "date" )
     LocalDate date;
 }
