@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 public class EmailNotificationService implements NotificationService {
 
     @Autowired
-    JavaMailSender javaMailSender;
+    public JavaMailSender javaMailSender;
 
     @Override
     @Async

@@ -71,9 +71,7 @@ public class HotelService {
                 .address(hotel.getHotelName())
                 .Status(hotel.getStatus())
                 .build();
-
     }
-
 
     public List<HotelResponseDto> getAllHotelsByLocation(String location) throws HotelLocationNotFoundException {
           List<Hotel> hotelList = hotelRepository.findByAddressContainingIgnoreCase(location);

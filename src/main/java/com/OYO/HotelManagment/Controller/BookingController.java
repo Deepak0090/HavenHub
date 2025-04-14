@@ -32,8 +32,9 @@ public class BookingController {
                 bookingResponseDto.setErrorMessage(e.getMessage());
                 return  new ResponseEntity<>(bookingResponseDto, HttpStatus.BAD_REQUEST);
             }
-
         }
+
+
 
         @GetMapping("/")
         public ResponseEntity<BookingResponseDto> getBookingDetails(@RequestParam Integer bookingId){
@@ -46,10 +47,12 @@ public class BookingController {
                 return new ResponseEntity<>(bookingResponseDto,HttpStatus.BAD_REQUEST);
             }
         }
+
         @GetMapping("/allBookings")
-        public List<BookingResponseDto> getAllBookingDetails(){
-            return bookingService.getAllBookingDetails();
+        public ResponseEntity<List<BookingResponseDto>> getAllBookings(){
+            return  new ResponseEntity<>(bookingService.getAllBookingDetails(), HttpStatus.OK);
         }
+
 
         @DeleteMapping("/cancel/{bookingId}")
         public ResponseEntity<String> cancelBooking(@PathVariable Integer bookingId){

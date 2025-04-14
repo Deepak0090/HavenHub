@@ -27,8 +27,12 @@ public class CustomerService {
     BookingRepo bookingRepo;
 
     public CustomerResponseDto createCustomers(CustomerRequestDto customerRequestDto) throws DuplicateEmailException {
-        try {
 
+        List<Customer> existingCustomer = customerRepo.findByEmail(customerRequestDto.getEmail());
+        if (!existingCustomer.isEmpty()){
+            throw new DuplicateEmailException("This email already exists. Please use another email.");
+        }
+        try {
             Customer customer = convertCustomerRequestDto(customerRequestDto);
 //            Aadhar aadhar = customerRequestDto.getAadhar();
 //            aadhar.setCustomer(customer);

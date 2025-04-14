@@ -7,6 +7,8 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class NotificationDto {
 
     private String customerEmail;
