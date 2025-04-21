@@ -27,7 +27,7 @@ public class BookingController {
                 BookingResponseDto responseDto =   bookingService.createBookings(bookingRequestDto);
                 return new ResponseEntity<>(responseDto, HttpStatus.CREATED);
             } catch (RoomNotFoundException | CustomerNotFoundException | CheckInAndCheckOutDateException |
-                     HotelNotFoundException e) {
+                     HotelNotFoundException | BookingAmountNotFoundException e) {
                 BookingResponseDto bookingResponseDto = new BookingResponseDto();
                 bookingResponseDto.setErrorMessage(e.getMessage());
                 return  new ResponseEntity<>(bookingResponseDto, HttpStatus.BAD_REQUEST);

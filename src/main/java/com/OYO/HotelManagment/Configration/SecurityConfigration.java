@@ -28,7 +28,7 @@ public class SecurityConfigration{
                 .authorizeHttpRequests((authorizeRequest) ->
                 authorizeRequest
                         .requestMatchers("/api/v1/hotels/**").hasRole("ADMIN")
-                        .requestMatchers("/api/v1/customers/**").hasRole("ADMIN")
+                        .requestMatchers("/api/v1/customers/**").hasRole("USER")
 //                        .requestMatchers(HttpMethod.DELETE, "/api/v1/bookings/cancel/**").hasRole("USER")
                         .requestMatchers("/api/v1/bookings/**").hasAnyRole("USER","ADMIN")
                         .requestMatchers("/api/v1/rooms/**").hasRole("ADMIN")

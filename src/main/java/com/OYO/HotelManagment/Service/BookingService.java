@@ -40,7 +40,7 @@ public class BookingService {
     @Autowired
     RoomService roomService;
 
-    public BookingResponseDto createBookings(BookingRequestDto bookingRequestDto) throws RoomNotFoundException, CustomerNotFoundException, CheckInAndCheckOutDateException, HotelNotFoundException {
+    public BookingResponseDto createBookings(BookingRequestDto bookingRequestDto) throws RoomNotFoundException, CustomerNotFoundException, CheckInAndCheckOutDateException, HotelNotFoundException, BookingAmountNotFoundException {
 
         if (bookingRequestDto.getCheckIn().isAfter(bookingRequestDto.getCheckOut())) {
             throw new CheckInAndCheckOutDateException("Check-in Dated must be before Check-out Date");
@@ -74,12 +74,16 @@ public class BookingService {
         }
 
 
+
         double price = priceInventoryService.calculatePrice(
                 bookingRequestDto.getHotelId(),
                 bookingRequestDto.getRoomId(),
                 bookingRequestDto.getCheckIn(),
                 bookingRequestDto.getCheckOut()
         );
+        if(bookingRequestDto.getBookingAmount()<price){
+            throw new BookingAmountNotFoundException("Sorry! The provided amount does not match the expected room price.");
+        }
         Booking booking = Booking.builder().
                 hotelId(bookingRequestDto.getHotelId())
                 .roomId(bookingRequestDto.getRoomId())
@@ -135,7 +139,7 @@ public class BookingService {
                 .Message(
                         "Dear " + customer.getName() + ",\n\n"
                                 + "Thank you for choosing " + hotel.getHotelName() + " !..\n\n"
-                                + "Below is your booking details Have a Nice Day! :-\n\n"
+                                + "Here are your booking details. Wishing you a pleasant stay!\n\n"
                                 + " Booking ID : " + booking.getId() + "\n"
                                 + " Hotel Name : " + hotel.getHotelName() + "\n"
                                 + " Hotel Address : " + hotel.getAddress() + "\n"

@@ -115,8 +115,8 @@ public class PriceInventoryService {
         Optional<PriceInventoryDetails> inventoryDetails = priceInventoryRepo.findByHotelIdAndRoomIdAndDate(hotelId,roomId,checkIn);
         if (inventoryDetails.isPresent()){
             PriceInventoryDetails inventoryDetails1 = inventoryDetails.get();
-            long daysBetween = ChronoUnit.DAYS.between(checkIn, checkOut);
-            return inventoryDetails.get().getPrice()*daysBetween;
+            long daysBetween = Math.max(1,ChronoUnit.DAYS.between(checkIn, checkOut));
+            return inventoryDetails1.getPrice()*daysBetween;
         }
         throw new IllegalArgumentException("Room Price Information is Not Found");
     }
