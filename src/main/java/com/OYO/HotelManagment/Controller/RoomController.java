@@ -4,6 +4,8 @@ import com.OYO.HotelManagment.DTO.Request.RoomRequestDTO;
 import com.OYO.HotelManagment.DTO.Response.BookingResponseDto;
 import com.OYO.HotelManagment.DTO.Response.RoomResponseDto;
 import com.OYO.HotelManagment.Exception.RoomNotFoundException;
+import com.OYO.HotelManagment.Model.Booking;
+import com.OYO.HotelManagment.Service.BookingService;
 import com.OYO.HotelManagment.Service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

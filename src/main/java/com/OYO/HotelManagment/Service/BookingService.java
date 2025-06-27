@@ -10,6 +10,7 @@ import com.OYO.HotelManagment.Exception.*;
 import com.OYO.HotelManagment.Model.Booking;
 import com.OYO.HotelManagment.Model.Customer;
 import com.OYO.HotelManagment.Repository.BookingRepo;
+import com.OYO.HotelManagment.Repository.RoomRepo;
 import com.OYO.HotelManagment.interfaces.NotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -72,8 +73,6 @@ public class BookingService {
         if (room == null) {
             throw new RoomNotFoundException("Room Not Found");
         }
-
-
 
         double price = priceInventoryService.calculatePrice(
                 bookingRequestDto.getHotelId(),

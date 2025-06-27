@@ -35,14 +35,13 @@ class EmailNotificationServiceTest {
 
     @Test
     public void testSendNotification(){
-        NotificationDto dto = NotificationDto.
+        NotificationDto Testdto = NotificationDto.
                 builder().customerEmail("dc022694@gmail.com").
                 Subject("Just check the Test Cases")
                 .Message("Hello Dear! This is Just for Test the Email")
                 .build();
 
-        emailNotificationService.sendNotification(dto);
-
+        emailNotificationService.sendNotification(Testdto);
 
        verify(javaMailSender,times(1)).send(messageCaptor.capture());
 

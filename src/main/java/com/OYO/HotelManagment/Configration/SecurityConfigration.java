@@ -27,11 +27,21 @@ public class SecurityConfigration{
                 .csrf(csrf ->csrf.disable())
                 .authorizeHttpRequests((authorizeRequest) ->
                 authorizeRequest
+                        .requestMatchers(
+                                "/swagger-ui/**",
+                                "/swagger-ui.html",
+                                "/v3/api-docs/**",
+                                "/swagger-resources/**",
+                                "/webjars/**"
+                        ).authenticated()
                         .requestMatchers("/api/v1/hotels/**").hasRole("ADMIN")
-                        .requestMatchers("/api/v1/customers/**").hasRole("USER")
+                        .requestMatchers("/api/v1/customers/**").hasAnyRole("USER","ADMIN")
+                        .requestMatchers("/api/v1/auth/**").permitAll()
 //                        .requestMatchers(HttpMethod.DELETE, "/api/v1/bookings/cancel/**").hasRole("USER")
                         .requestMatchers("/api/v1/bookings/**").hasAnyRole("USER","ADMIN")
                         .requestMatchers("/api/v1/rooms/**").hasRole("ADMIN")
+
+                        .anyRequest().authenticated()
 
                 )
                 .httpBasic(withDefaults()); // Enable HTTP Basic Authentication
@@ -41,13 +51,13 @@ public class SecurityConfigration{
     @Bean
     public UserDetailsService userDetailsService() {
        UserDetails user1 = User.builder().username("deepak").password(getCoder().encode("deepak@123")).roles("USER").build();
-       UserDetails user2 = User.builder().username("ash").password(getCoder().encode("ash@123")).roles("ADMIN").build();
+       UserDetails user2 = User.builder().username("dkDev").password(getCoder().encode("dev@123")).roles("ADMIN").build();
 
         return new InMemoryUserDetailsManager(user1,user2);
     }
 
     @Bean
     public PasswordEncoder getCoder(){
-        return  new BCryptPasswordEncoder();
+        return new BCryptPasswordEncoder();
     }
 }

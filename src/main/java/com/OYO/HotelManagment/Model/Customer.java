@@ -26,9 +26,11 @@ public class Customer{
     @Column(name = "contact_Number")
     String contactNumber;
 
-
     @Column(name = "email_id", unique = true)
     String email;
+
+    @Column(name = "password",nullable = false)
+    String password;
 
     @Column(name = "status")
     String status;

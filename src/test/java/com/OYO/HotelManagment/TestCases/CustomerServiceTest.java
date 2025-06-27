@@ -57,6 +57,7 @@ public class CustomerServiceTest {
         savedCustomer.setContactNumber("9625936408");
         savedCustomer.setStatus("Active");
 
+        when(customerRepo.findByEmail("deepak936408@gmail.com")).thenReturn(Optional.empty());
         when(customerRepo.save(any(Customer.class))).thenReturn(savedCustomer);
 
         CustomerResponseDto responseDto = customerService.createCustomers(requestDto);
@@ -81,7 +82,7 @@ public class CustomerServiceTest {
         existingCustomer.setEmail("Naveen@gmail.com");
         existingCustomer.setContactNumber("9389728924");
 
-        when(customerRepo.findByEmail("Naveen@gmail.com")).thenReturn(List.of(existingCustomer));
+        when(customerRepo.findByEmail("Naveen@gmail.com")).thenReturn(Optional.of(existingCustomer));
 
         assertThrows(DuplicateEmailException.class,()->{
             customerService.createCustomers(requestDto);
@@ -117,7 +118,7 @@ public class CustomerServiceTest {
         customer.setContactNumber("9278924629");
         customer.setStatus("Active");
 
-        when(customerRepo.findByEmail("Dheeraj@gmail.com")).thenReturn(List.of(customer));
+        when(customerRepo.findByEmail("Dheeraj@gmail.com")).thenReturn(Optional.of(customer));
         List<CustomerResponseDto> customerResponseDtos = customerService.getCustomerByEmailId("Dheeraj@gmail.com");
         assertEquals(1, customerResponseDtos.size());
         assertEquals("Jerry",customerResponseDtos.get(0).getName());

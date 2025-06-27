@@ -34,8 +34,6 @@ public class BookingController {
             }
         }
 
-
-
         @GetMapping("/")
         public ResponseEntity<BookingResponseDto> getBookingDetails(@RequestParam Integer bookingId){
             try {

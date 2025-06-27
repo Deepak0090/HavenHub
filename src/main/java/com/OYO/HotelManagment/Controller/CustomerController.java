@@ -2,6 +2,7 @@ package com.OYO.HotelManagment.Controller;
 
 import com.OYO.HotelManagment.DTO.Request.CustomerRequestDto;
 import com.OYO.HotelManagment.DTO.Response.CustomerResponseDto;
+import com.OYO.HotelManagment.Exception.CustomerNotFoundException;
 import com.OYO.HotelManagment.Exception.DuplicateEmailException;
 import com.OYO.HotelManagment.Service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +52,18 @@ public class CustomerController {
     @GetMapping("/getbyemail")
     public List<CustomerResponseDto> getCustomerByEmailId(@RequestParam String email){
             return  customerService.getCustomerByEmailId(email);
+    }
+
+    @DeleteMapping("/cancel/{id}")
+    public ResponseEntity<String> deleteById(@PathVariable("id") Integer id){
+
+        try {
+                String check = customerService.deleteCustomerById(id);
+                return new ResponseEntity<>("Customer Detail Successfully Deleted",HttpStatus.OK);
+        } catch (CustomerNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+
     }
 
 }

@@ -14,5 +14,6 @@ public class CustomerRequestDto {
    private String name;
    private String contactNumber;
    private String email;
+   private String password;
 //    Aadhar aadhar;
 }

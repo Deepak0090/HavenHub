@@ -10,6 +10,8 @@ public class WhatsAppNotificationService implements NotificationService {
 
     @Override
     public void sendNotification(NotificationDto notificationDto){
+
         System.out.println("Send WhatsApp Notification");
+
     }
 }

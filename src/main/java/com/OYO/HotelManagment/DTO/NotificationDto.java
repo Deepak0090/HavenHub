@@ -4,8 +4,7 @@ import lombok.*;
 
 import java.time.LocalDate;
 
-@Getter
-@Setter
+@Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -21,4 +20,12 @@ public class NotificationDto {
     private String hotelAddress;
     private  String Subject;
     private String Message;
+
+
+    public NotificationDto(String email, String message, String subject) {
+        this.customerEmail = email;
+        this.Message = message;
+        this.Subject = subject;
+    }
+
 }
