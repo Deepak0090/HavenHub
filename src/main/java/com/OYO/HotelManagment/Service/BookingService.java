@@ -125,6 +125,20 @@ public class BookingService {
 
 
     private NotificationDto getNotificationSenderDto(Booking booking, Customer customer, HotelResponseDto hotel, RoomResponseDto room) {
+        StringBuilder message = new StringBuilder();
+
+        message.append("<p>Dear ").append(customer.getName()).append(",</p>");
+        message.append("<p>Thank you for choosing ").append(hotel.getHotelName()).append("! Here are your booking details. Wishing you a pleasant stay!</p>");
+        message.append("<p><strong>Booking ID:</strong> ").append(booking.getId()).append("<br>");
+        message.append("<strong>Hotel Name:</strong> ").append(hotel.getHotelName()).append("<br>");
+        message.append("<strong>Hotel Address:</strong> ").append(hotel.getAddress()).append("<br>");
+        message.append("<strong>Room Type:</strong> ").append(room.getRoomtype()).append("<br>");
+        message.append("<strong>Check-In Date:</strong> ").append(booking.getCheckIn()).append("<br>");
+        message.append("<strong>Check-Out Date:</strong> ").append(booking.getCheckOut()).append("<br>");
+        message.append("<strong>Total Amount:</strong> $").append(booking.getAmount()).append("</p>");
+        message.append("<p>We look forward to welcoming you!</p>");
+        message.append("<p>Best Regards,<br>HavenHub Management</p>");
+
         return NotificationDto.builder()
                 .customerEmail(customer.getEmail())
                 .bookingId(booking.getId())
@@ -135,20 +149,7 @@ public class BookingService {
                 .checkOutDate(booking.getCheckOut())
                 .totalAmount(booking.getAmount())
                 .Subject("BOOKING CONFIRMATION AT - " + hotel.getHotelName())
-                .Message(
-                        "Dear " + customer.getName() + ",\n\n"
-                                + "Thank you for choosing " + hotel.getHotelName() + " !..\n\n"
-                                + "Here are your booking details. Wishing you a pleasant stay!\n\n"
-                                + " Booking ID : " + booking.getId() + "\n"
-                                + " Hotel Name : " + hotel.getHotelName() + "\n"
-                                + " Hotel Address : " + hotel.getAddress() + "\n"
-                                + " Room Type : " + room.getRoomtype() + "\n"
-                                + " Check-In Date : " + booking.getCheckIn() + "\n"
-                                + " Check-Out Date : " + booking.getCheckOut() + "\n"
-                                + " Total Amount: $ " + booking.getAmount() + "\n\n"
-                                + "We look forward to welcoming you!\n\n"
-                                + "Best Regards,\n\nHavenHub Management"
-                )
+                .Message(message.toString())
                 .build();
     }
 
