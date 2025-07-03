@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e8a3fe46-c0f2-4749-81fc-3a6d9a4a6389" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/HotelManagment/src/main/java/com/OYO/HotelManagment/Service/BookingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/HotelManagment/src/main/java/com/OYO/HotelManagment/Service/BookingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HotelManagment/src/main/java/com/OYO/HotelManagment/Service/PriceInventoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/HotelManagment/src/main/java/com/OYO/HotelManagment/Service/PriceInventoryService.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageOptionsProvider">
+    <option name="myAddOrReplace" value="1" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OUTPUT_DIRECTORY" value="C:\Users\Deepak\IdeaProjects\HotelManagment\HotelManagment\htmlReport" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="AnnotationType" />
+        <option value="package-info" />
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/HotelManagment" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Deepak0090&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Deepak0090/HavenHub.git&quot;,
+    &quot;accountId&quot;: &quot;bfea26e1-e8ad-4e19-bcdc-389ab2f51e46&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2tDNyRmMEMl95h7OX8aW6WHTYgW" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HotelManagmentApplication.executor": "Debug",
+    "JUnit.BookingServiceTest.TestCancelBooking.executor": "Coverage",
+    "JUnit.BookingServiceTest.executor": "Coverage",
+    "JUnit.BookingServiceTest.testCancelBooking_AlreadyCancelled_ShouldReturnFalse.executor": "Run",
+    "JUnit.BookingServiceTest.testCancelBooking_BookingNotFound_ShouldThrowException.executor": "Run",
+    "JUnit.BookingServiceTest.testCreateBooking.executor": "Coverage",
+    "JUnit.BookingServiceTest.testCreateBooking_CheckInAfterCheckOut_ShouldThrowException.executor": "Run",
+    "JUnit.BookingServiceTest.testCreateBooking_CheckInInPast_ShouldThrowException.executor": "Run",
+    "JUnit.BookingServiceTest.testCreateBooking_CustomerNotFound_ShouldThrowException.executor": "Run",
+    "JUnit.BookingServiceTest.testCreateBooking_HotelNotFound_ShouldThrowException.executor": "Run",
+    "JUnit.BookingServiceTest.testCreateBooking_NoRoomAvailable_ShouldThrowException.executor": "Run",
+    "JUnit.BookingServiceTest.testCreateBooking_RoomNotFound_ShouldThrowException.executor": "Run",
+    "JUnit.BookingServiceTest.testGetAllBookingDetails_Success.executor": "Coverage",
+    "JUnit.BookingServiceTest.testGetBookingDetails_NotFound_ShouldThrowException.executor": "Run",
+    "JUnit.BookingServiceTest.testGetBookingDetails_Success.executor": "Run",
+    "JUnit.BookingServiceTest.testUpdateBooking_BookingNotFound_ShouldThrowException.executor": "Coverage",
+    "JUnit.BookingServiceTest.testUpdateBooking_CheckInAfterCheckOut_ShouldThrowException.executor": "Run",
+    "JUnit.BookingServiceTest.testUpdateBooking_RoomUnavailable_ShouldThrowException.executor": "Run",
+    "JUnit.BookingServiceTest.testUpdateBooking_Successful.executor": "Coverage",
+    "JUnit.CustomerServiceTest.executor": "Run",
+    "JUnit.CustomerServiceTest.testCreateCustomerDuplicateEmail.executor": "Run",
+    "JUnit.CustomerServiceTest.testCreateCustomerSuccess.executor": "Run",
+    "JUnit.CustomerServiceTest.testGetAllCustomers.executor": "Run",
+    "JUnit.CustomerServiceTest.testGetCustomerByEmailId.executor": "Run",
+    "JUnit.EmailNotificationServiceTest.executor": "Coverage",
+    "JUnit.HotelManagmentApplicationTests.contextLoads.executor": "Run",
+    "JUnit.HotelManagmentApplicationTests.executor": "Run",
+    "JUnit.HotelServiceTest.executor": "Coverage",
+    "JUnit.HotelServiceTest.testCreateHotel.executor": "Run",
+    "JUnit.HotelServiceTest.testGetAllHotel.executor": "Run",
+    "JUnit.HotelServiceTest.testGetAllHotelsByLocation_NotFound.executor": "Run",
+    "JUnit.HotelServiceTest.testGetAllHotelsByLocation_Success.executor": "Run",
+    "JUnit.HotelServiceTest.testGetHotelDetails_NotFound.executor": "Run",
+    "JUnit.HotelServiceTest.testGetHotelDetails_Success.executor": "Run",
+    "JUnit.PriceInventoryServiceTest.executor": "Coverage",
+    "JUnit.PriceInventoryServiceTest.testUpdateInventoryBookingSuccess.executor": "Run",
+    "JUnit.PriceInventoryServiceTest.testUpdateInventoryCancelBooking.executor": "Run",
+    "JUnit.RoomServiceTest.executor": "Coverage",
+    "JUnit.RoomServiceTest.testGetAllRoom.executor": "Run",
+    "JUnit.com.OYO.HotelManagment.TestCase in HotelManagment.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Deepak/Downloads/LinkDink",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "advanced.settings"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.OYO.HotelManagment.DTO" />
+      <recent name="com.OYO.HotelManagment" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.HotelManagmentApplication">
+    <configuration name="HotelManagmentApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.OYO.HotelManagment.HotelManagmentApplication" />
+      <module name="HotelManagment" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.OYO.HotelManagment.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BookingServiceTest.testCreateBooking" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="HotelManagment" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.OYO.HotelManagment.TestCase" />
+      <option name="MAIN_CLASS_NAME" value="com.OYO.HotelManagment.TestCases.BookingServiceTest" />
+      <option name="METHOD_NAME" value="testCreateBooking" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CustomerServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HotelManagment" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.OYO.HotelManagment.TestCases.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.OYO.HotelManagment.TestCases" />
+      <option name="MAIN_CLASS_NAME" value="com.OYO.HotelManagment.TestCases.CustomerServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmailNotificationServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HotelManagment" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.OYO.HotelManagment.TestCases" />
+      <option name="MAIN_CLASS_NAME" value="com.OYO.HotelManagment.TestCases.EmailNotificationServiceTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HotelManagmentApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HotelManagment" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.OYO.HotelManagment.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.OYO.HotelManagment" />
+      <option name="MAIN_CLASS_NAME" value="com.OYO.HotelManagment.HotelManagmentApplicationTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HotelManagmentApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HotelManagment" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.OYO.HotelManagment.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.OYO.HotelManagment" />
+      <option name="MAIN_CLASS_NAME" value="com.OYO.HotelManagment.HotelManagmentApplicationTests" />
+      <option name="METHOD_NAME" value="contextLoads" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.HotelManagmentApplication" />
+        <item itemvalue="JUnit.CustomerServiceTest" />
+        <item itemvalue="JUnit.HotelManagmentApplicationTests" />
+        <item itemvalue="JUnit.HotelManagmentApplicationTests.contextLoads" />
+        <item itemvalue="JUnit.EmailNotificationServiceTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e8a3fe46-c0f2-4749-81fc-3a6d9a4a6389" name="Changes" comment="" />
+      <created>1739882938921</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1739882938921</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/HotelManagment$BookingServiceTest_testGetAllBookingDetails_Success.ic" NAME="BookingServiceTest.testGetAllBookingDetails_Success Coverage Results" MODIFIED="1744119987724" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/HotelManagment$BookingServiceTest_testUpdateBooking_Successful.ic" NAME="BookingServiceTest.testUpdateBooking_Successful Coverage Results" MODIFIED="1744120135565" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.OYO.HotelManagment.TestCase.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/HotelManagment$BookingServiceTest_testCreateBooking.ic" NAME="BookingServiceTest.testCreateBooking Coverage Results" MODIFIED="1744120055971" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/HotelManagment$BookingServiceTest.ic" NAME="BookingServiceTest Coverage Results" MODIFIED="1744123141525" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/HotelManagment$BookingServiceTest_TestCancelBooking.ic" NAME="BookingServiceTest.TestCancelBooking Coverage Results" MODIFIED="1744117282271" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.OYO.HotelManagment.TestCase.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/HotelManagment$PriceInventoryServiceTest.ic" NAME="PriceInventoryServiceTest Coverage Results" MODIFIED="1744123171065" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/HotelManagment$CustomerServiceTest.ic" NAME="CustomerServiceTest Coverage Results" MODIFIED="1744459515202" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/HotelManagment$RoomServiceTest.ic" NAME="RoomServiceTest Coverage Results" MODIFIED="1744464263758" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/HotelManagment$EmailNotificationServiceTest.ic" NAME="EmailNotificationServiceTest Coverage Results" MODIFIED="1744631738402" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/HotelManagment$BookingServiceTest_testCreateBooking.exec" NAME="BookingServiceTest.testCreateBooking Coverage Results" MODIFIED="1744116734293" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="jacoco" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.OYO.HotelManagment.TestCase.*</FILTER>
+      <FILTER>com.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/HotelManagment$HotelServiceTest.ic" NAME="HotelServiceTest Coverage Results" MODIFIED="1744461989957" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/HotelManagment$BookingServiceTest_testUpdateBooking_BookingNotFound_ShouldThrowException.ic" NAME="BookingServiceTest.testUpdateBooking_BookingNotFound_ShouldThrowException Coverage Results" MODIFIED="1744119813968" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.*</FILTER>
+    </SUITE>
+  </component>
+</project>
